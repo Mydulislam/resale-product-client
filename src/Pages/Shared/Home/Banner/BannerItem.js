@@ -16,7 +16,7 @@ const BannerItem = ({ slide }) => {
             {/* <div className="carousel-img w-full h-2/5">
                 <img src={image} className='h-96 w-full' alt='' />
             </div> */}
-            <div className="absolute justify-center items-center w-full top-1/2">
+            <div className="absolute justify-center items-center w-full lg:top-1/2">
                 <div className='w-2/4 mx-auto text-center'>
                     <h1 className="text-primary font-bold text-2xl capitalize">{info}</h1>
                     <p className='text-6xl font-bold mb-3 text-white'>{title}</p>
