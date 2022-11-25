@@ -1,0 +1,8 @@
+li svg, .link svg{
+    display: inline;
+    margin-right:10px;
+    transition: 0.5s ease-out;
+}
+.link:hover svg{
+    margin-right: 20px;
+}

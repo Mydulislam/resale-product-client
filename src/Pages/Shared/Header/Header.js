@@ -8,6 +8,7 @@ const Header = () => {
         <li><Link to='/'>Category</Link></li>
         <li><Link to='/login'>Login</Link></li>
         <li><Link to='/signup'>SignUp</Link></li>
+        <li><Link to='/blog'>Blog</Link></li>
     </React.Fragment>
     return (
         <div className="navbar p-0 justify-between bg-base-100">

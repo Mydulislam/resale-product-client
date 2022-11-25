@@ -11,37 +11,37 @@ const servicesInfo = [
         id: 1,
         icon: <FaCarAlt className='bg-primary w-16 h-16 rounded-full p-4 inline'/>,
         title: 'Car Selling',
-        info: 'Lorem, Ipsum Dolor Sit Amet Consectetur Adipisicing Elit. Corporis, Nisi.'
+        info: 'You can sell your used car privately, online, or to a dealership. Before selling your vehicle using any option, you will need to gather all necessary documents.'
     },
     {
         id: 2,
         icon: <FaTools className='bg-primary w-16 h-16 rounded-full p-4 inline'/>,
         title: 'Parts Repair',
-        info: 'Lorem, Ipsum Dolor Sit Amet Consectetur Adipisicing Elit. Corporis, Nisi.'
+        info: 'Car Repair Estimates and Auto Repair Costs. The car repair cost for auto parts can sometimes exceed the value of the car.'
     },
     {
         id: 3,
         icon: <FaCarCrash className='bg-primary w-16 h-16 rounded-full p-4 inline'/>,
         title: 'Car Insurance',
-        info: 'Lorem, Ipsum Dolor Sit Amet Consectetur Adipisicing Elit. Corporis, Nisi.'
+        info: 'We evaluated large auto insurance companies based on average rates for a variety of drivers, coverage features available, levels of complaints,'
     },
     {
         id: 4,
         icon: <FaCarBattery className='bg-primary w-16 h-16 rounded-full p-4 inline'/>,
         title: 'Battery Replacement',
-        info: 'Lorem, Ipsum Dolor Sit Amet Consectetur Adipisicing Elit. Corporis, Nisi.'
+        info: 'Stay safe and let us come to you. Our Assist service will replace your car battery wherever you are. Just book a date and time slot online.'
     },
     {
         id: 5,
         icon: <FaGasPump className='bg-primary w-16 h-16 rounded-full p-4 inline'/>,
         title: 'Oil Change',
-        info: 'Lorem, Ipsum Dolor Sit Amet Consectetur Adipisicing Elit. Corporis, Nisi.'
+        info: 'Every car is different, but most should have their oil changed every 3,000 miles or three months. New vehicles usually require a change of oil every 6,000 miles'
     },
     {
         id: 6,
         icon: <FaHeadset className='bg-primary w-16 h-16 rounded-full p-4 inline'/>,
         title: '24/7 Support',
-        info: 'Lorem, Ipsum Dolor Sit Amet Consectetur Adipisicing Elit. Corporis, Nisi.'
+        info: '1800-258-5656 (8 AM to 10 PM) · logo. call. Buy; Sell. Lets talk about everything! Helpline Numbers. Email. Hey! How can I help you today? Open chat.'
     },
 ]
 const Services = () => {
