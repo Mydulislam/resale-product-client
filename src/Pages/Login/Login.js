@@ -1,19 +1,31 @@
+import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
 
 const Login = () => {
-    const {login} = useContext(AuthContext)
+    const {login, googleSign} = useContext(AuthContext)
     const { register, formState: { errors }, handleSubmit } = useForm();
-    const [loginError, setLoginError] = useState('')
+    const [loginError, setLoginError] = useState('');
+    const googleProvider = new GoogleAuthProvider()
     const handleLogin = (data)=>{
         setLoginError('')
         login(data.email, data.password)
         .then(result => {
             const user = result.user;
             console.log(user);
-            setLoginError('')
+            setLoginError('');
+            toast.success('Login Successfully')
+        })
+        .catch(err => setLoginError(err.message))
+    }
+    const handleGoogleSignIn = ()=>{
+        googleSign(googleProvider)
+        .then(result=>{
+            const user = result.user;
+            console.log(user);
         })
         .catch(err => setLoginError(err.message))
     }
@@ -51,7 +63,7 @@ const Login = () => {
                         <p className='mt-4'>You are new? Please <Link className='underline text-primary' to='/signup'>Signup Now</Link></p>
                     </form>
                     <div className="divider">OR</div>
-                    <button className="btn btn-outline uppercase w-full">Login With Google</button>
+                    <button onClick={handleGoogleSignIn} className="btn btn-outline uppercase w-full">Login With Google</button>
                 </div>
 
             </div>
