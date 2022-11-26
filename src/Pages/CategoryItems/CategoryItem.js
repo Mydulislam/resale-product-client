@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const CategoryItem = ({category}) => {
     const {_id, name, image} = category
     return (
-        <Link className="card shadow-xl">
+        <Link to={`/category/${_id}`} className="card shadow-xl">
             <div className="card-body">
                 <div className="card-actions mx-auto">
                     <img className='h-20 w-20' src={image} alt="" />
