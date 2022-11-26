@@ -1,13 +1,24 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../../assets/logo2.png'
+import { AuthContext } from '../../../Context/AuthProvider';
 const Header = () => {
+    const { user } = useContext(AuthContext)
     const menuItem = <React.Fragment>
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/'>About</Link></li>
         <li><Link to='/'>Category</Link></li>
-        <li><Link to='/login'>Login</Link></li>
-        <li><Link to='/signup'>SignUp</Link></li>
+        {
+            user?.uid ?
+                <>
+                    <li><Link to='/signout'>SignOut</Link></li>
+                </>
+                :
+                <>
+                    <li><Link to='/login'>Login</Link></li>
+                    <li><Link to='/signup'>SignUp</Link></li>
+                </>
+        }
         <li><Link to='/blog'>Blog</Link></li>
     </React.Fragment>
     return (
@@ -23,7 +34,7 @@ const Header = () => {
                 </div>
                 <Link to='/' className="btn p-0 btn-ghost normal-case text-3xl">
                     <img className='w-14' src={logo} alt="" />
-                    <span style={{color:'#F89C1C'}}>Max</span>wheels
+                    <span style={{ color: '#F89C1C' }}>Max</span>wheels
                 </Link>
             </div>
             <div className="navbar-center hidden lg:flex">
