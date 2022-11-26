@@ -3,15 +3,20 @@ import { Link } from 'react-router-dom';
 import logo from '../../../assets/logo2.png'
 import { AuthContext } from '../../../Context/AuthProvider';
 const Header = () => {
-    const { user } = useContext(AuthContext)
+    const { user, logOut } = useContext(AuthContext);
+    const handleLogOut = ()=>{
+        logOut()
+        .then(()=>{})
+        .catch(err => console.log(err.message))
+    }
     const menuItem = <React.Fragment>
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/'>About</Link></li>
         <li><Link to='/'>Category</Link></li>
         {
             user?.uid ?
-                <>
-                    <li><Link to='/signout'>SignOut</Link></li>
+                <>  <li><Link to='/dashboard'>Dashboard</Link></li>
+                    <li><button onClick={handleLogOut}>SignOut</button></li>
                 </>
                 :
                 <>

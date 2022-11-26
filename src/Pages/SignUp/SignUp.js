@@ -58,7 +58,7 @@ const SignUp = () => {
                         {
                             signUpError && <p className='text-red-600'>{signUpError}</p>
                         }
-                        <p>Already Have an Account. Please <Link className='text-primary underline' to='/login'>Login</Link></p>
+                        <p className='mt-4'>Already Have an Account. Please <Link className='text-primary underline' to='/login'> Login</Link></p>
                     </form>
                 </div>
 
