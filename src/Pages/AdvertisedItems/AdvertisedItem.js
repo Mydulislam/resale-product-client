@@ -7,7 +7,7 @@ const AdvertisedItem = ({advertise}) => {
     const {name, price, postDate, condition, description, image, location, purchaseYear} = advertise;
     return (
         <div className="card card-compact bg-base-100 shadow-xl">
-            <figure><img className='w-full h-56' src={image} alt="" /></figure>
+            <figure><img className='w-full h-56 p-5' src={image} alt="" /></figure>
             <div className="card-body">
                 <h2 className="card-title">{name}</h2>
                 <p>Price: {price}$</p>

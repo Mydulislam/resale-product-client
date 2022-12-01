@@ -6,6 +6,7 @@ import AddProduct from "../../Dashboard/AllSellers/AddProduct/AddProduct";
 import AllSellers from "../../Dashboard/AllSellers/AllSellers";
 import MyProduct from "../../Dashboard/AllSellers/MyProduct/MyProduct";
 import AllUsers from "../../Dashboard/AllUsers/AllUsers";
+import MyBuyers from "../../Dashboard/MyBuyers/MyBuyers";
 import MyOrders from "../../Dashboard/MyOrders/MyOrders";
 import ErrorPage from "../../ErrorPage/ErrorPage";
 import DashboardLayout from "../../Layout/DashboardLayout";
@@ -14,7 +15,9 @@ import Login from "../../Login/Login";
 import Home from "../../Shared/Home/Home/Home";
 import SignUp from "../../SignUp/SignUp";
 import AdminRoute from "../AdminRoute/AdminRoute";
+import BuyerRoute from "../BuyerRoute/BuyerRoute";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import SellerRoute from "../SellerRoute/SellerRoute";
 
 const router = createBrowserRouter([
     {
@@ -51,12 +54,8 @@ const router = createBrowserRouter([
       errorElement : <ErrorPage></ErrorPage>,
       children:[
         {
-          path:'/dashboard',
-          element:<MyOrders></MyOrders> // eita buyer er kaj
-        },
-        {
-          path:'/dashboard/users',
-          element:<AdminRoute><AllUsers></AllUsers></AdminRoute> // eita admin er kaj
+          path:'/dashboard/orders',
+          element:<BuyerRoute><MyOrders></MyOrders></BuyerRoute> // eita buyer er kaj
         },
         {
           path:'/dashboard/sellers',
@@ -68,11 +67,15 @@ const router = createBrowserRouter([
         },
         {
           path:'/dashboard/addproduct',
-          element:<AddProduct></AddProduct> // eita seller er kaj 
+          element:<SellerRoute><AddProduct></AddProduct></SellerRoute> // eita seller er kaj 
         },
         {
           path:'/dashboard/myproduct',
-          element:<MyProduct></MyProduct> // eitao seller er kaj
+          element:<SellerRoute><MyProduct></MyProduct></SellerRoute> // eitao seller er kaj
+        },
+        {
+          path:'/dashboard/mybuyers',
+          element:<SellerRoute><MyBuyers></MyBuyers></SellerRoute> // eitao seller er kaj
         },
       ]
     }

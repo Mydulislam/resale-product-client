@@ -44,10 +44,10 @@ const Login = () => {
         .catch(err => setLoginError(err.message))
     }
 
-    const saveUserDatabase = (name, email, role='buyer') => {
-        const userInfo = { name, email, role };
+    const saveUserDatabase = (name, email) => {
+        const userInfo = { name, email};
         fetch('http://localhost:5000/users', {
-            method: 'POST',
+            method: 'PUT',
             headers: {
                 'content-type': 'application/json'
             },
