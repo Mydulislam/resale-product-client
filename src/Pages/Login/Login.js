@@ -4,15 +4,21 @@ import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
+// import useToken from '../../hooks/useToken';
 
 const Login = () => {
     const {login, googleSign} = useContext(AuthContext)
     const { register, formState: { errors }, handleSubmit } = useForm();
     const [loginError, setLoginError] = useState('');
     const googleProvider = new GoogleAuthProvider();
+    // const [loginUserEmail, setLoginUserEmail] = useState('');
+    // const [token] = useToken(loginUserEmail);
     const location = useLocation();
     const navigate = useNavigate();
-    const from = location.state?.from?.pathname || '/'
+    const from = location.state?.from?.pathname || '/';
+    // if(token){
+    //     navigate(from, {replace:true});
+    // }
     const handleLogin = (data)=>{
         setLoginError('')
         login(data.email, data.password)
@@ -21,6 +27,7 @@ const Login = () => {
             console.log(user);
             setLoginError('');
             toast.success('Login Successfully');
+            // setLoginUserEmail(data.email)
             navigate(from, {replace:true});
         })
         .catch(err => setLoginError(err.message))
@@ -29,10 +36,27 @@ const Login = () => {
         googleSign(googleProvider)
         .then(result=>{
             const user = result.user;
-            console.log(user);
+            console.log(user.email);
+            // setLoginUserEmail(user.email)
+            saveUserDatabase(user.displayName, user.email)
             navigate(from, {replace:true});
         })
         .catch(err => setLoginError(err.message))
+    }
+
+    const saveUserDatabase = (name, email, role='buyer') => {
+        const userInfo = { name, email, role };
+        fetch('http://localhost:5000/users', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(userInfo)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+            })
     }
     return (
         <div className='mt-12 h-[90vh] flex justify-center'>

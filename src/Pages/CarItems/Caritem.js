@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from '../../Context/AuthProvider';
+import useBuyer from '../../hooks/useBuyer';
 
 const Caritem = ({item,setCarInfo}) => {
+    const {user} = useContext(AuthContext);
+    const  [isBuyer] = useBuyer(user?.email)
     const {name,picture,location,resale_price,original_price,useYear,timePost,sellerName} = item;
     return (
         <div className="card card-compact bg-base-100 shadow-xl">
-            <figure><img className='w-full h-56' src={picture} alt="Shoes" /></figure>
+            <figure><img className='w-full h-56' src={picture} alt="" /></figure>
             <div className="card-body">
                 <h2 className="card-title">{name}</h2>
                 <p>Resel Price: {resale_price}$</p>
@@ -14,10 +18,14 @@ const Caritem = ({item,setCarInfo}) => {
                 <p>Seller Name: {sellerName}</p>
                 <p>Location: {location}</p>
                 <div className="card-actions justify-center">
-                    <label onClick={()=>setCarInfo(item)}
-                    htmlFor="bookingModal" 
-                    className="btn btn-primary">Book Now</label>
+                    <label disabled={!isBuyer} onClick={()=>setCarInfo(item)}
+                        htmlFor="bookingModal" 
+                        className="btn btn-primary">Book Now</label>
                 </div>
+                {
+                    !isBuyer && <p className='text-red-600 text-center font-bold'>Only buyer can book this product</p>
+                }
+                
             </div>
         </div>
     );

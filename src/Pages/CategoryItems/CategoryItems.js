@@ -1,13 +1,17 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
+import Loading from '../Shared/Loading/Loading';
 import CategoryItem from './CategoryItem';
 
 const CategoryItems = () => {
-    const { data: categories = [] } = useQuery({
+    const { data: categories = [], isLoading } = useQuery({
         queryKey: ['categories'],
         queryFn: () => fetch('http://localhost:5000/categories')
             .then(res => res.json())
     })
+    if(isLoading){
+        return <Loading></Loading>
+    }
     return (
         <div>
             <h1 className='text-center text-4xl font-bold my-7'>Our <span className='befor-css'>Categories</span></h1>

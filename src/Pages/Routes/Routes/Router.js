@@ -1,12 +1,19 @@
 import { createBrowserRouter } from "react-router-dom";
 import Blog from "../../Blog/Blog";
 import CarItems from "../../CarItems/CarItems";
-import Dashboard from "../../Dashboard/Dashboard/Dashboard";
+import AllBuyers from "../../Dashboard/AllBuyers/AllBuyers";
+import AddProduct from "../../Dashboard/AllSellers/AddProduct/AddProduct";
+import AllSellers from "../../Dashboard/AllSellers/AllSellers";
+import MyProduct from "../../Dashboard/AllSellers/MyProduct/MyProduct";
+import AllUsers from "../../Dashboard/AllUsers/AllUsers";
+import MyOrders from "../../Dashboard/MyOrders/MyOrders";
 import ErrorPage from "../../ErrorPage/ErrorPage";
+import DashboardLayout from "../../Layout/DashboardLayout";
 import Main from "../../Layout/Main";
 import Login from "../../Login/Login";
 import Home from "../../Shared/Home/Home/Home";
 import SignUp from "../../SignUp/SignUp";
+import AdminRoute from "../AdminRoute/AdminRoute";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 const router = createBrowserRouter([
@@ -40,7 +47,34 @@ const router = createBrowserRouter([
     },
     {
       path:'/dashboard',
-      element:<PrivateRoute><Dashboard></Dashboard></PrivateRoute>
+      element:<PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
+      errorElement : <ErrorPage></ErrorPage>,
+      children:[
+        {
+          path:'/dashboard',
+          element:<MyOrders></MyOrders> // eita buyer er kaj
+        },
+        {
+          path:'/dashboard/users',
+          element:<AdminRoute><AllUsers></AllUsers></AdminRoute> // eita admin er kaj
+        },
+        {
+          path:'/dashboard/sellers',
+          element:<AdminRoute><AllSellers></AllSellers></AdminRoute> // eita admin er kaj
+        },
+        {
+          path:'/dashboard/buyers',
+          element:<AdminRoute><AllBuyers></AllBuyers></AdminRoute> // eita admin er kaj
+        },
+        {
+          path:'/dashboard/addproduct',
+          element:<AddProduct></AddProduct> // eita seller er kaj 
+        },
+        {
+          path:'/dashboard/myproduct',
+          element:<MyProduct></MyProduct> // eitao seller er kaj
+        },
+      ]
     }
   ]);
   export default router;
