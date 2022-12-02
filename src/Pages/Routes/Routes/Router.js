@@ -5,9 +5,9 @@ import AllBuyers from "../../Dashboard/AllBuyers/AllBuyers";
 import AddProduct from "../../Dashboard/AllSellers/AddProduct/AddProduct";
 import AllSellers from "../../Dashboard/AllSellers/AllSellers";
 import MyProduct from "../../Dashboard/AllSellers/MyProduct/MyProduct";
-import AllUsers from "../../Dashboard/AllUsers/AllUsers";
 import MyBuyers from "../../Dashboard/MyBuyers/MyBuyers";
 import MyOrders from "../../Dashboard/MyOrders/MyOrders";
+import MyPayment from "../../Dashboard/MyOrders/MyPayment";
 import ErrorPage from "../../ErrorPage/ErrorPage";
 import DashboardLayout from "../../Layout/DashboardLayout";
 import Main from "../../Layout/Main";
@@ -77,6 +77,11 @@ const router = createBrowserRouter([
           path:'/dashboard/mybuyers',
           element:<SellerRoute><MyBuyers></MyBuyers></SellerRoute> // eitao seller er kaj
         },
+        {
+          path:'/dashboard/payment/:id',
+          loader:({params})=> fetch(`http://localhost:5000/payment/${params.id}`),
+          element:<BuyerRoute><MyPayment></MyPayment></BuyerRoute>
+      }
       ]
     }
   ]);
