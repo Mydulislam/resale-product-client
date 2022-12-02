@@ -6,7 +6,7 @@ import CategoryItem from './CategoryItem';
 const CategoryItems = () => {
     const { data: categories = [], isLoading } = useQuery({
         queryKey: ['categories'],
-        queryFn: () => fetch('http://localhost:5000/categories')
+        queryFn: () => fetch('https://server-site-silk-ten.vercel.app/categories')
             .then(res => res.json())
     })
     if(isLoading){

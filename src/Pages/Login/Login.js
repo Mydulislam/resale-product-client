@@ -46,7 +46,7 @@ const Login = () => {
 
     const saveUserDatabase = (name, email) => {
         const userInfo = { name, email};
-        fetch('http://localhost:5000/users', {
+        fetch('https://server-site-silk-ten.vercel.app/users', {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

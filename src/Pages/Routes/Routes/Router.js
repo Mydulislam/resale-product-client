@@ -43,7 +43,7 @@ const router = createBrowserRouter([
         },
         {
             path:'/category/:id',
-            loader:({params})=>fetch(`http://localhost:5000/category/${params.id}`),
+            loader:({params})=>fetch(`https://server-site-silk-ten.vercel.app/category/${params.id}`),
             element:<PrivateRoute><CarItems></CarItems></PrivateRoute>
         },
       ]
@@ -79,7 +79,7 @@ const router = createBrowserRouter([
         },
         {
           path:'/dashboard/payment/:id',
-          loader:({params})=> fetch(`http://localhost:5000/payment/${params.id}`),
+          loader:({params})=> fetch(`https://server-site-silk-ten.vercel.app/payment/${params.id}`),
           element:<BuyerRoute><MyPayment></MyPayment></BuyerRoute>
       }
       ]

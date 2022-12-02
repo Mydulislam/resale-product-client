@@ -31,7 +31,7 @@ const AddProduct = () => {
                 purchaseYear : data.purchaseYear
             }
             
-            fetch('http://localhost:5000/addproducts',{
+            fetch('https://server-site-silk-ten.vercel.app/addproducts',{
                 method: 'POST',
                 headers : {
                     'content-type' : 'application/json',

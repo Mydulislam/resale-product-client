@@ -14,7 +14,7 @@ const CheckoutForm = ({ data }) => {
 
     useEffect(() => {
         // Create PaymentIntent as soon as the page loads
-        fetch("http://localhost:5000/create-payment-intent", {
+        fetch("https://server-site-silk-ten.vercel.app/create-payment-intent", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -77,7 +77,7 @@ const CheckoutForm = ({ data }) => {
                 userEmail,
                 bookingId: _id
             }
-            fetch('http://localhost:5000/payments', {
+            fetch('https://server-site-silk-ten.vercel.app/payments', {
                 method: 'POST',
                 headers: {
                     "Content-Type": "application/json",

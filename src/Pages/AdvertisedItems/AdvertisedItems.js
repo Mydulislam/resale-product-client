@@ -8,7 +8,7 @@ const AdvertisedItems = () => {
     const [advertises, setAdvertises] = useState([]);
     const {loading} = useContext(AuthContext)
     useEffect(() => {
-        axios.get('http://localhost:5000/addadvertise')
+        axios.get('https://server-site-silk-ten.vercel.app/addadvertise')
             .then(response => {
                 console.log(response);
                 const result = response.data;

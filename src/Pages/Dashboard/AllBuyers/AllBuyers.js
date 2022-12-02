@@ -12,13 +12,13 @@ const AllBuyers = () => {
 
     const {data:buyers=[], isLoading, refetch} = useQuery({
         queryKey:['buyers'],
-        queryFn:()=> fetch('http://localhost:5000/buyers')
+        queryFn:()=> fetch('https://server-site-silk-ten.vercel.app/buyers')
                     .then(res=>res.json())
     });
 
     // delete buyer
     const handleDelete = (buyer)=>{
-        fetch(`http://localhost:5000/buyer/${buyer._id}`,{
+        fetch(`https://server-site-silk-ten.vercel.app/buyer/${buyer._id}`,{
             method:'DELETE',
             headers:{
                 authorization: `bearer ${localStorage.getItem('access-token')}`

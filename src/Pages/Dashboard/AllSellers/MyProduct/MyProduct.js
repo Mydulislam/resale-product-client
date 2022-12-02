@@ -13,7 +13,7 @@ const MyProduct = () => {
 
     const { data: products = [], isLoading, refetch } = useQuery({
         queryKey: ['products'],
-        queryFn: () => fetch('http://localhost:5000/addproducts', {
+        queryFn: () => fetch('https://server-site-silk-ten.vercel.app/addproducts', {
             headers: {
                 authorization: `bearer ${localStorage.getItem('access-token')}`
             }
@@ -24,7 +24,7 @@ const MyProduct = () => {
 
     // Deleting product
     const handleDelete = (product)=>{
-        fetch(`http://localhost:5000/addproducts/${product._id}`,{
+        fetch(`https://server-site-silk-ten.vercel.app/addproducts/${product._id}`,{
             method : 'DELETE',
             headers: {
                 authorization: `bearer ${localStorage.getItem('access-token')}`
@@ -54,7 +54,7 @@ const MyProduct = () => {
             purchaseYear : product.purchaseYear,
             postDate : currentDate
         }
-        fetch('http://localhost:5000/addadvertise',{
+        fetch('https://server-site-silk-ten.vercel.app/addadvertise',{
             method:'POST',
             headers:{
                 'content-type' : 'application/json',

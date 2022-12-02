@@ -24,7 +24,7 @@ const BookingModal = ({ carInfo, setCarInfo }) => {
             location,
             picture
         };
-        fetch('http://localhost:5000/bookings', {
+        fetch('https://server-site-silk-ten.vercel.app/bookings', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

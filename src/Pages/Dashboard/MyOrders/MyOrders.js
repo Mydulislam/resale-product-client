@@ -8,7 +8,7 @@ const MyOrders = () => {
     const { user } = useContext(AuthContext);
     const { data: bookings = [], isLoading } = useQuery({
         queryKey: ['bookings', user?.email],
-        queryFn: () => fetch(`http://localhost:5000/bookings?email=${user?.email}`, {
+        queryFn: () => fetch(`https://server-site-silk-ten.vercel.app/bookings?email=${user?.email}`, {
             headers: {
                 authorization: `bearer ${localStorage.getItem('access-token')}`
             }

@@ -5,7 +5,7 @@ import Loading from '../../Shared/Loading/Loading';
 const AllUsers = () => {
     const {data:users=[], isLoading} = useQuery({
         queryKey:['users'],
-        queryFn:()=> fetch('http://localhost:5000/users')
+        queryFn:()=> fetch('https://server-site-silk-ten.vercel.app/users')
                     .then(res=>res.json())
     });
     if(isLoading){
